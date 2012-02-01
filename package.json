@@ -1,0 +1,29 @@
+{
+	"name": "LISP.js",
+	"homepage": "http://github.com/arian/LISP.js",
+	"version": "0.0.1",
+	"description": "A simple LISP parser and executer.",
+	"keywords": ["LISP"],
+	"author": "Arian Stolwijk",
+	"maintainers": [{
+		"name": "Arian Stolwijk",
+		"web": "http://aryweb.nl"
+	}],
+	"bugs": "https://github.com/arian/LISP.js/issues",
+	"licenses": [{
+		"type": "MIT",
+		"url": "http://www.opensource.org/licenses/mit-license.php"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/arian/LISP.js.git"
+	},
+	"implements": ["CommonJS/Packages/1.0", "CommonJS/Modules/AsynchronousDefinition"],
+	"directories": {
+		"lib": "Source"
+	},
+	"main": "./Source/parse",
+	"dependencies": {
+		"amd-loader": ">=0.0.3"
+	}
+}

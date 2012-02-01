@@ -1,5 +1,7 @@
 
-define(['./parse'], function(parse){
+define(function(require){
+
+var parse = require('./parse');
 
 var toString = Object.prototype.toString;
 
