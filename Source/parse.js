@@ -1,4 +1,3 @@
-
 define(function(){
 
 var trim = String.prototype.trim || (function() {
@@ -67,7 +66,7 @@ return function(text){
 
 	}
 
-	throw new Error('unbalanced parenthesis');
+	throw new Error('unbalanced parentheses');
 
 };
 
