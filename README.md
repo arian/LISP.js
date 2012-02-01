@@ -39,3 +39,19 @@ require('amd-loader');
 var exec = require('LISP.js');
 exec('(+ 1 2)');
 ```
+
+### Install with NPM
+
+You can install LISP.js with npm:
+
+```
+npm install LISP.js
+```
+
+or add LISP.js to your `package.json` dependencies:
+
+```js
+	"dependencies": {
+		"LISP.js": ">=0.0.1"
+	}
+```
