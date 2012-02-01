@@ -36,6 +36,6 @@ Then `amd-loader` should be required in your own file:
 
 ```js
 require('amd-loader');
-var exec = require('LISP.js/exec');
+var exec = require('LISP.js');
 exec('(+ 1 2)');
 ```

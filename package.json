@@ -22,7 +22,7 @@
 	"directories": {
 		"lib": "Source"
 	},
-	"main": "./Source/parse",
+	"main": "./Source/exec",
 	"dependencies": {
 		"amd-loader": ">=0.0.3"
 	}
