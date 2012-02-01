@@ -52,6 +52,6 @@ or add LISP.js to your `package.json` dependencies:
 
 ```js
 	"dependencies": {
-		"LISP.js": ">=0.0.1"
+		"LISP.js": ">=0.0.2"
 	}
 ```
