@@ -16,70 +16,59 @@ var trim = String.prototype.trim || (function() {
 	};
 })();
 
-var nest = function(text) {
+return function(text){
+
 	text = trim.call(text);
 
-	if (text.charAt(0) != '(') throw new Error('The code should start with a (');
-	if (text.charAt(text.length - 1) != ')') throw new Error('The code should end with a )');
+	if (text.charAt(0) != '(') return text;
 
-	var level = 0, i = 0, c;
-	var part = '', parts = [];
+	var stack = [];
+	var token;
+	var tokens = '';
+	var comment = false;
+	var i = 0;
+	var expr;
 
-	var push = function(){
-		part = trim.call(part.slice(1, -1));
-		if (part != '') parts.push(part);
-		part = '';
-	};
+	while (i < text.length){
+		token = text.charAt(i++);
 
-	while (i < text.length) {
-		c = text.charAt(i);
-
-		part += c;
-
-		if (c == '('){
-			level++;
-			if (level == 2) push();
-		}
-
-		else if (c == ')'){
-			level--;
-			if (level == 1){
-				part = ' (' + part + ' ';
-				push();
+		if (token == '(' || token == ')' || (token == ' ' && !comment)){
+			if (expr && tokens.length){
+				var n = +tokens;
+				expr.push(isNaN(n) ? tokens : n);
 			}
-		}
-
-		i++;
-	}
-
-	push();
-	return parts;
-
-};
-
-var parse = function(str) {
-	var nested = nest(str);
-	var parsed = [];
-	for (var i = 0; i < nested.length; i++){
-		var part = nested[i];
-		if (part.charAt(0) == '('){
-			parsed.push(parse(part));
+			tokens = '';
 		} else {
-			if (part.charAt(0) == '"') parsed.push(part);
-			else {
-				part = part.split(' ');
-				for (var j = 0; j < part.length; j++){
-					if (part[j] != ''){
-						var n = +part[j];
-						parsed.push(isNaN(n) ? part[j] : n);
-					}
-				}
-			}
+			if (token == '"') comment = !comment;
+			if (!/\s/.test(token) || comment) tokens += token;
 		}
-	}
-	return parsed;
-};
 
-return parse;
+		if (token == '('){
+
+			var previous = expr;
+			expr = [];
+
+			if (previous){
+				// push the previous expresion to the stack
+				stack.push(previous);
+				// if expr is not top-level, append the expression
+				previous.push(expr);
+			}
+
+		} else if (token == ')'){
+
+			// pop one from stack
+			var pop = stack.pop();
+			// stack is empty, so expr is the top-level expression
+			if (!pop) return expr;
+			expr = pop;
+
+		}
+
+	}
+
+	throw new Error('unbalanced parenthesis');
+
+};
 
 });
