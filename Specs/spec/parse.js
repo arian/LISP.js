@@ -1,5 +1,7 @@
 
-define(['LISP/parse'], function(parse){
+define(function(require){
+
+var parse = require('../../Source/parse');
 
 var tests = {
 

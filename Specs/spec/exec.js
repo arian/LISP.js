@@ -1,5 +1,7 @@
 
-define(['LISP/exec'], function(exec){
+define(function(require){
+
+var exec = require('../../Source/exec');
 
 var tests = {
 
