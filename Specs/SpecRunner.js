@@ -1,12 +1,27 @@
 
-var assert = require('assert');
+var jasmine = require('./jasmine/lib/jasmine-core/jasmine');
+for (var k in jasmine) global[k] = jasmine[k];
+var jasmineNode = require('./jasmine-node/reporter').jasmineNode;
 
 require('amd-loader');
 
-var exec = require('../Source/exec');
-var parse = require('../Source/parse');
+var exec = require('./spec/exec');
+var parse = require('./spec/parse');
 
-assert.deepEqual(['+', 3, 2], parse('(+ 3 2)'));
-assert.equal(4, exec('(+ 1 3)'));
+var reporter = new jasmineNode.TerminalReporter({
+	color: true
+});
 
-console.log('no failing assertions');
+reporter.reportRunnerResults = function(runner){
+	jasmineNode.TerminalReporter.prototype.reportRunnerResults.apply(this, arguments);
+	
+	var results = runner.results();
+	process.exit(results.failedCount);
+};
+
+var jasmineEnv = global.jasmine.getEnv(reporter);
+jasmineEnv.addReporter(reporter);
+jasmineEnv.execute();
+
+
+
