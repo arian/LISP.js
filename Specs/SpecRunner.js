@@ -1,5 +1,5 @@
 
-var jasmine = require('./jasmine/lib/jasmine-core/jasmine');
+var jasmine = require('./jasmine-core/jasmine');
 for (var k in jasmine) global[k] = jasmine[k];
 var jasmineNode = require('./jasmine-node/reporter').jasmineNode;
 
