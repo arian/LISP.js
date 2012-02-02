@@ -1,6 +1,8 @@
 LISP.js
 =======
 
+[![Build Status](https://secure.travis-ci.org/arian/LISP.js.png)](http://travis-ci.org/arian/LISP.js)
+
 Parse and execute LISP code in JavaScript.
 
 API
