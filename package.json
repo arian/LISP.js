@@ -1,30 +1,40 @@
 {
-	"name": "LISP.js",
-	"homepage": "http://github.com/arian/LISP.js",
-	"version": "0.0.3",
-	"description": "A simple LISP parser and executer.",
-	"keywords": ["LISP"],
-	"author": "Arian Stolwijk",
-	"maintainers": [{
-		"name": "Arian Stolwijk",
-		"web": "http://aryweb.nl"
-	}],
-	"bugs": "https://github.com/arian/LISP.js/issues",
-	"licenses": [{
-		"type": "MIT",
-		"url": "http://www.opensource.org/licenses/mit-license.php"
-	}],
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/arian/LISP.js.git"
-	},
-	"main": "./LISP",
-	"scripts": {
-		"test": "make test"
-	},
-	"devDependencies": {
-		"mocha": "1.2",
-		"expect.js": "0.1",
-		"wrapup": "0.9.10"
-	}
+  "name": "LISP.js",
+  "homepage": "http://github.com/arian/LISP.js",
+  "version": "0.0.4",
+  "description": "A simple LISP parser and executer.",
+  "keywords": [
+    "LISP"
+  ],
+  "author": "Arian Stolwijk",
+  "maintainers": [
+    "Arian Stolwijk (http://aryweb.nl)"
+  ],
+  "bugs": {
+    "name": "https://github.com/arian/LISP.js/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arian/LISP.js.git"
+  },
+  "main": "./LISP",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "mocha": "1.2",
+    "expect.js": "0.1",
+    "wrapup": "0.9.10"
+  },
+  "dependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
 }
