@@ -1,5 +1,4 @@
-
-define(function(require){
+"use strict";
 
 var parse = require('./parse');
 
@@ -11,8 +10,8 @@ var isArray = function(arr) {
 
 var create = Object.create || function(obj){
 	var F = function(){};
-	F.prototype = Object(obj);
-	return new F;
+	F.prototype = new Object(obj);
+	return new F();
 };
 
 var exec = function(expr, env){
@@ -62,7 +61,7 @@ var procedures = {
 
 	'if': function(args, env){
 		var condition = exec(args[0], env), res = false;
-		if (condition != false) res = exec(args[1], env);
+		if (condition !== false) res = exec(args[1], env);
 		else if (args[2]) res = exec(args[2], env);
 		return res;
 	},
@@ -133,7 +132,7 @@ var procedures = {
 	'and': function(args, env){
 		var res = false;
 		for (var i = 0; i < args.length; i++){
-			if ((res = exec(args[i], env)) == false) return false;
+			if ((res = exec(args[i], env)) === false) return false;
 		}
 		return res;
 	},
@@ -141,7 +140,7 @@ var procedures = {
 	'or': function(args, env){
 		var res = false;
 		for (var i = 0; i < args.length; i++){
-			if ((res = exec(args[i], env)) != false) return res;
+			if ((res = exec(args[i], env)) !== false) return res;
 		}
 		return false;
 	},
@@ -166,6 +165,4 @@ var procedures = {
 
 }
 
-return exec;
-
-});
+module.exports = exec;

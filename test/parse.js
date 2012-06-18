@@ -1,7 +1,7 @@
+"use strict";
 
-define(function(require){
-
-var parse = require('../../Source/parse');
+var parse = require('../parse');
+var expect = require('expect.js');
 
 var tests = {
 
@@ -35,11 +35,10 @@ describe('parser', function(){
 	for (var code in tests) (function(code, expected){
 
 		it('should parse `' + code + '`', function(){
-			expect(parse(code)).toEqual(expected);
+			expect(parse(code)).to.eql(expected);
 		});
 
 	})(code, tests[code]);
 
 });
 
-});

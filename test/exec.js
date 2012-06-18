@@ -1,7 +1,7 @@
+"use strict";
 
-define(function(require){
-
-var exec = require('../../Source/exec');
+var exec = require('../exec');
+var expect = require('expect.js');
 
 var tests = {
 
@@ -94,11 +94,9 @@ describe('execute', function(){
 	for (var code in tests) (function(code, expected){
 
 		it('should evaluate `' + code + '` to ' + expected, function(){
-			expect(exec(code)).toEqual(expected);
+			expect(exec(code)).to.eql(expected);
 		});
 
 	})(code, tests[code]);
-
-});
 
 });

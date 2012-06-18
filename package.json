@@ -18,16 +18,13 @@
 		"type": "git",
 		"url": "git://github.com/arian/LISP.js.git"
 	},
-	"implements": ["CommonJS/Packages/1.0", "CommonJS/Modules/AsynchronousDefinition"],
-	"directories": {
-		"lib": "Source"
-	},
-	"main": "./Source/exec",
+	"main": "./LISP",
 	"scripts": {
-		"test": "./Specs/test.sh"
+		"test": "make test"
 	},
-	"dependencies": {
-		"amd-loader": ">=0.0.3",
-		"soda": ">=0.2.5"
+	"devDependencies": {
+		"mocha": "1.2",
+		"expect.js": "0.1",
+		"wrapup": "0.9.10"
 	}
 }

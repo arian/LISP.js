@@ -21,13 +21,6 @@ Executing code can be done with the `exec` function:
 exec('(+ 3 (- 10 5))'); // 8
 ```
 
-AMD
----
-
-LISP.js uses the [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) format. You could use any compatible AMD loader, either on Node.js or in the browser to use this Complex module. I'd recommend [Require.JS](http://requirejs.org/).
-
-Concatenating AMD modules can be done with _r.js_ or [amd-packager-php](https://github.com/arian/amd-packager-php)
-
 LISP.js in Node.js
 ------------------
 
@@ -57,3 +50,17 @@ or add LISP.js to your `package.json` dependencies:
 		"LISP.js": ">=0.0.2"
 	}
 ```
+
+LISP.js in the Browser
+----------------------
+
+Building LISP.js for the browser is easy with [wrapup](github.com/kamicane/wrapup).
+
+	make build
+
+will create a JS file that will export a global `LISP` variable with `LISP.exec()`
+and `LISP.parse()`.
+
+Alternatively you could use this to have global `parse` and `exec` functions.
+
+	wrup -r parse ./parse -r exec ./exec
