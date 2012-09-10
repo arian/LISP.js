@@ -1,7 +1,7 @@
 {
   "name": "LISP.js",
   "homepage": "http://github.com/arian/LISP.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple LISP parser and executer.",
   "keywords": [
     "LISP"
