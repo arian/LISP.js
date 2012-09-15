@@ -48,7 +48,7 @@ or add LISP.js to your `package.json` dependencies:
 LISP.js in the Browser
 ----------------------
 
-Building LISP.js for the browser is easy with [wrapup](github.com/kamicane/wrapup).
+Building LISP.js for the browser is easy with [wrapup](https://github.com/kamicane/wrapup).
 
 	make build
 
