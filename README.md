@@ -24,14 +24,8 @@ exec('(+ 3 (- 10 5))'); // 8
 LISP.js in Node.js
 ------------------
 
-For usage in node.js, [amd-loader](https://github.com/ajaxorg/node-amd-loader)
-is required. This can be installed by running `npm install`.
-
-Then `amd-loader` should be required in your own file:
-
 ```js
-require('amd-loader');
-var exec = require('LISP.js');
+var exec = require('LISP.js').exec;
 exec('(+ 1 2)');
 ```
 
@@ -47,7 +41,7 @@ or add LISP.js to your `package.json` dependencies:
 
 ```js
 	"dependencies": {
-		"LISP.js": ">=0.0.2"
+		"LISP.js": ">=0.0.6"
 	}
 ```
 
@@ -58,8 +52,8 @@ Building LISP.js for the browser is easy with [wrapup](github.com/kamicane/wrapu
 
 	make build
 
-will create a JS file that will export a global `LISP` variable with `LISP.exec()`
-and `LISP.parse()`.
+This command will create a JS file that will export a global `LISP` variable
+with `LISP.exec()` and `LISP.parse()`.
 
 Alternatively you could use this to have global `parse` and `exec` functions.
 
